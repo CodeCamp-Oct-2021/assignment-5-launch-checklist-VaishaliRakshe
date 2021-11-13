@@ -30,7 +30,7 @@ window.addEventListener("load", function() {
     let faultyItems = document.getElementById('faultyItems');
     
    form.addEventListener("submit",function(event){
-  
+     event.preventDefault();
        formSubmission(document, faultyItems, pilotName.value, copilotName.value, fuelLevel.value, cargoMass.value, event)
        
 
