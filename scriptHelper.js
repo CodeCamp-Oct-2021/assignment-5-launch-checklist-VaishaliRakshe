@@ -119,13 +119,20 @@ async function myFetch() {
    //let json = [];
    let planetsReturned
    planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json").then(function (response) {
+    
+   if (response.status>=400){
+      throw new Error ("Fail Respons")
+   }
+   else {
       return response.json();
-   });
-   return planetsReturned;
+   }
+  
+});
+return planetsReturned;
 }
 
 function pickPlanet(planets) {
-   const index = Math.floor(Math.random() * planets.length - 1);
+   const index = Math.floor(Math.random() * planets.length );
    return planets[index];
 }
 
